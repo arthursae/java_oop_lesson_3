@@ -22,17 +22,19 @@ public class Main {
         Double minWeight = 0.1;
         Double maxWeight = 100.1;
         int numberOfContainers = 2;
+        int minBoxes = 1;
+        int maxBoxes = 10;
         List<Container> containers = new ArrayList<>();
 
         for (int i = 0; i < numberOfContainers; i++) {
             containers.add(new Container());
         }
 
-        for (int i = 0; i < new Random().nextInt(1, 10); i++) {
+        for (int i = 0; i < new Random().nextInt(minBoxes, maxBoxes); i++) {
             containers.get(0).addCargo(new Box((new Random().nextDouble() * (maxWeight - minWeight) + minWeight)));
         }
 
-        for (int i = 0; i < new Random().nextInt(1, 10); i++) {
+        for (int i = 0; i < new Random().nextInt(minBoxes, maxBoxes); i++) {
             containers.get(1).addCargo(new Box((new Random().nextDouble() * (maxWeight - minWeight) + minWeight)));
         }
 
@@ -53,8 +55,8 @@ public class Main {
             System.err.println("Both containers have the same number of boxes");
         }
 
-
         int diff = containers.get(0).compareTo(containers.get(1));
+        
         if (diff > 0) {
             System.err.println("Container #1 heavier: +" + diff);
         } else if (diff < 0) {
