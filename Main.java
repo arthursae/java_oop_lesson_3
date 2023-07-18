@@ -46,9 +46,9 @@ public class Main {
         var containersDiff = containersComparator.compare(containers.get(0), containers.get(1));
 
         if (containersDiff > 0) {
-            System.err.println("Container 1 has more boxes: " + containersDiff);
+            System.err.println("Container #1 has more boxes: +" + containersDiff);
         } else if (containersDiff < 0) {
-            System.err.println("Container 2 has more boxes: " + containersDiff);
+            System.err.println("Container #1 has less boxes: " + containersDiff);
         } else {
             System.err.println("Both containers have the same number of boxes");
         }
@@ -56,29 +56,25 @@ public class Main {
 
         int diff = containers.get(0).compareTo(containers.get(1));
         if (diff > 0) {
-            System.err.println("Container 1 heavier: " + diff);
+            System.err.println("Container #1 heavier: +" + diff);
         } else if (diff < 0) {
-            System.err.println("Container 2 heavier: " + diff);
+            System.err.println("Container #1 lighter: " + diff);
         } else {
             System.err.println("Both containers have equal weights");
         }
 
         System.out.printf("%n");
-        System.out.println("Total weight for container 1 = " + containers.get(0).getTotalWeight());
-        System.out.println("Container 1 contains = " + containers.get(0).getNumberOfBoxes() + " boxes");
+        System.out.println("Total weight for container #1 = " + containers.get(0).getTotalWeight());
+        System.out.println("Container #1 contains = " + containers.get(0).getNumberOfBoxes() + " boxes");
 
-        Iterator<Box> iterator1 = containers.get(0).iterator();
-        while (iterator1.hasNext()) {
-            Box box = iterator1.next();
+        for (Box box : containers.get(0)) {
             System.out.printf("Box UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
         }
         System.out.printf("%n");
-        System.out.println("Total weight for container 2  = " + containers.get(1).getTotalWeight());
-        System.out.println("Container 2 contains = " + containers.get(1).getNumberOfBoxes() + " boxes");
+        System.out.println("Total weight for container #2  = " + containers.get(1).getTotalWeight());
+        System.out.println("Container #2 contains = " + containers.get(1).getNumberOfBoxes() + " boxes");
 
-        Iterator<Box> iterator2 = containers.get(1).iterator();
-        while (iterator2.hasNext()) {
-            Box box = iterator2.next();
+        for (Box box : containers.get(1)) {
             System.out.printf("Box UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
         }
     }
