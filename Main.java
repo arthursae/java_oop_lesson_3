@@ -56,7 +56,7 @@ public class Main {
         }
 
         int diff = containers.get(0).compareTo(containers.get(1));
-        
+
         if (diff > 0) {
             System.err.println("Container #1 heavier: +" + diff);
         } else if (diff < 0) {
@@ -67,17 +67,22 @@ public class Main {
 
         System.out.printf("%n");
         System.out.println("Total weight for container #1 = " + containers.get(0).getTotalWeight());
-        System.out.println("Container #1 contains = " + containers.get(0).getNumberOfBoxes() + " boxes");
+        System.out.println("Container #1 contains = " + containers.get(0).getNumberOfBoxes() + " boxes:");
 
+        int i = 1;
         for (Box box : containers.get(0)) {
-            System.out.printf("Box UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
+            System.out.printf(i + "\tBox UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
+            i++;
         }
+        
         System.out.printf("%n");
         System.out.println("Total weight for container #2  = " + containers.get(1).getTotalWeight());
-        System.out.println("Container #2 contains = " + containers.get(1).getNumberOfBoxes() + " boxes");
+        System.out.println("Container #2 contains = " + containers.get(1).getNumberOfBoxes() + " boxes:");
 
+        int j = 1;
         for (Box box : containers.get(1)) {
-            System.out.printf("Box UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
+            System.out.printf(j + "\tBox UUID: %s\t Gross Weight: %s%n", box.getUUID(), Math.round(box.getGrossWeight()));
+            j++;
         }
     }
 }
